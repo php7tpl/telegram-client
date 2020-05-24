@@ -10,7 +10,7 @@ return [
         'directory' => [
             'default' => '/src/Migrations',
             '/src/Dialog/Domain/Migrations',
-            '/src/Client/Migrations',
+            '/vendor/php7bundle/telegram-client/src/Migrations',
         ],
     ],
 ];
