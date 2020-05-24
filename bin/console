@@ -1,0 +1,20 @@
+#!/usr/bin/env php
+<?php
+
+use Symfony\Component\Console\Application;
+use Psr\Container\ContainerInterface;
+use PhpLab\Core\Libs\Env\DotEnvHelper;
+use PhpLab\Core\Console\Helpers\CommandHelper;
+
+/** @var ContainerInterface $container */
+
+require_once __DIR__ . '/../src/Bootstrap/autoload.php';
+DotEnvHelper::init();
+include __DIR__ . '/../config/bootstrap.php';
+
+CommandHelper::registerFromNamespaceList([
+    'App\Dialog\Commands',
+], $container);
+
+$application = $container->get(Application::class);
+$application->run();

@@ -1,0 +1,44 @@
+{
+    "name": "php7tpl/telegram-client",
+    "minimum-stability":"dev",
+    "require": {
+        "php": "^7.2",
+        "guzzlehttp/guzzle": "6.*",
+        "lesstif/php-jira-rest-client": "2.1.0",
+        "php7bundle/telegram-client": "v0.0.5",
+        "php7lab/eloquent": "v0.0.5",
+        "phpunit/phpunit": "6.*",
+        "stevenmaguire/trello-php": "^0.5.3",
+        "workerman/workerman": "^4.0"
+    },
+    "require-dev": {
+        "php7lab/dev": "v0.0.4"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/php7lab/eloquent.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/php7fork/danog_madelineproto.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/php7bundle/telegram-client.git"
+        }
+    ]
+}

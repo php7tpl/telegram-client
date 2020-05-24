@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+<?php
+
+use PhpLab\Core\Libs\Init\Libs\Init;
+use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\Console\Output\ConsoleOutput;
+
+require_once __DIR__ . '/src/Bootstrap/autoload.php';
+
+$config = require __DIR__ . '/environments/index.php';
+$taskList = [
+    'copyFiles' => 'PhpLab\Core\Libs\Init\Tasks\CopyFilesTask',
+    'setCookieValidationKey' => 'PhpLab\Core\Libs\Init\Tasks\GenerateCookieValidationKeyTask',
+    'setWritable' => 'PhpLab\Core\Libs\Init\Tasks\SetWritableTask',
+    'setExecutable' => 'PhpLab\Core\Libs\Init\Tasks\SetExecutableTask',
+    'createSymlink' => 'PhpLab\Core\Libs\Init\Tasks\CreateSymlinkTask',
+];
+$input = new ArgvInput;
+$output = new ConsoleOutput;
+$initLib = new Init($input, $output, $config, $taskList);
+$initLib->run();
